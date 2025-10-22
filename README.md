@@ -11,7 +11,7 @@ Cyberbullying has slowly turned into one of the biggest problems of our generati
 
 Proposed Solution
 
-My idea is to create a smarter machine-learning model that can sense the tone, mood, and intent behind a message, not just read the words on the screen. I’ll be using a strong pre-trained language model like NLP which is Natural Language Processing and BERT which is Bidirectional Encoder Representations from Transformers by applying this method it transfers learning with real social-media data. The goal is to help the model pick up on hidden hostility and subtle emotional cues, like sarcasm or passive aggression, that ordinary systems usually miss.
+My idea is to create a smarter machine learning model that can sense the tone, mood, and intent behind a message, not just read the words on the screen. I’ll be using a strong pre trained language model like NLP which is Natural Language Processing and BERT which is Bidirectional Encoder Representations from Transformers by applying this method it transfers learning with real social-media data. The goal is to help the model pick up on hidden hostility and subtle emotional cues, like sarcasm or passive aggression, that ordinary systems usually miss.
 
 Expected Outcome
 
