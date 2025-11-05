@@ -18,9 +18,11 @@ Expected Outcome
 At the end, I’ll prepare a full research report that explains the development process, how the model works, its performance. My hope is that this project can contribute to building safer online spaces, where technology can actually recognize and stop harmful conversations before they cause more emotional and personal damage.
 
 2. Introduction
+
 Online social media platforms have become central to communication, but they have also enabled new avenues for harassment, known as cyberbullying. This behavior can have severe and lasting psychological impacts on victims. The technical challenge lies in language itself. The line between harmless "in-group" joking, sarcasm, and genuine malicious intent is often blurry. A statement like "You're a terrible person" could be a joke between friends or a targeted attack for some people with lots of sentiment and emotions. so from this project investigates the use of a state-of-the-art natural language processing (NLP) model, BERT, to tackle this problem. The goal of this project is to build and evaluate a multi-class classifier that can not only identify cyberbullying but also distinguish between different types, providing a more granular analysis.
 
 3. Related Work
+
 3.1 A significant body of research exists on automated cyberbullying detection. 
 In this project builds upon this, moving from traditional machine learning models to more advanced transformer-based architectures.Traditional Machine Learning (Baselines): Early approaches to this problem treated it as a standard text classification task. Researchers like Dadvar et al. (2013) and Nahar et al. (2014) used features like       TF-IDF (Term Frequency-Inverse Document Frequency) and n-grams to represent text. These features were then fed into classifiers like Support Vector Machines (SVM), Naive Bayes, and Logistic Regression.
 
@@ -34,8 +36,9 @@ Limitation of this method: Their understanding of context is still shallow (ofte
 
 4. Technical Background
     The tool used in this project is transfer learning via the BERT model.
-•	BERT (Bidirectional Encoder Representations from Transformers): BERT is a deep learning   model developed by Google. Unlike older models that read text left-to-right (like an LSTM), BERT reads the entire            sequence of words at once. This "bidirectional" nature allows it to learn deep contextual relationships. 
-For example, it can understand that the word bank means something different in "river bank" vs. "money bank" based on the words around it.
+    •	BERT (Bidirectional Encoder Representations from Transformers): BERT is a deep learning   model developed by Google. Unlike older models that read text left-to-right (like an LSTM), BERT reads the entire          sequence of words at once. This "bidirectional" nature allows it to learn deep contextual relationships. 
+        For example, it can understand that the word bank means something different in "river bank" vs. "money bank" based on the words around it.
+
 
 5. Method
   The methodology follows a standard supervised machine learning pipeline.
