@@ -62,8 +62,12 @@ Limitation of this method: Their understanding of context is still shallow (ofte
   6.1 Training Process: 
   
   a.	Model: Bert for Sequence Classification was loaded, pre-trained, and configured for 6 output labels.
+  
   b.	Optimizer: AdamW was used, which is the standard optimizer for BERT.
+  
   c.	Learning Rate (LR): A small LR of 2e-5 was chosen, as recommended for fine-tuning.
+  
   d.	Scheduler: A get_linear_schedule_with_warmup was used to adjust the LR during training, which helps model stability.
+  
   e.	Epochs: The model was trained for 3 full epochs. After epochs is done the model is saved in the path '/content/bert_cyberbullying_model'
    
