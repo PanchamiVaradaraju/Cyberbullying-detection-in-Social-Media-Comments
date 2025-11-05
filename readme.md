@@ -24,6 +24,7 @@ Online social media platforms have become central to communication, but they hav
 3. Related Work
 
 3.1 A significant body of research exists on automated cyberbullying detection. 
+
 In this project builds upon this, moving from traditional machine learning models to more advanced transformer-based architectures.Traditional Machine Learning (Baselines): Early approaches to this problem treated it as a standard text classification task. Researchers like Dadvar et al. (2013) and Nahar et al. (2014) used features like       TF-IDF (Term Frequency-Inverse Document Frequency) and n-grams to represent text. These features were then fed into classifiers like Support Vector Machines (SVM), Naive Bayes, and Logistic Regression.
 
 Model Used: These models are very effective at identifying explicit, keyword-driven harassment 
@@ -35,42 +36,34 @@ Model Used: Models by Pitsilis et al. (2018) showed that LSTMs could outperform 
 Limitation of this method: Their understanding of context is still shallow (often unidirectional) and they struggle with long-range dependencies in text.
 
 4. Technical Background
-    The tool used in this project is transfer learning via the BERT model.
+
+   The tool used in this project is transfer learning via the BERT model.
     •	BERT (Bidirectional Encoder Representations from Transformers): BERT is a deep learning   model developed by Google. Unlike older models that read text left-to-right (like an LSTM), BERT reads the entire          sequence of words at once. This "bidirectional" nature allows it to learn deep contextual relationships. 
         For example, it can understand that the word bank means something different in "river bank" vs. "money bank" based on the words around it.
 
 
 5. Method
-  The methodology follows a standard supervised machine learning pipeline.
 
-a.	Dataset: I have downloaded the data set from kaggel cyberbullying_tweets.csv dataset, which contains 9,996 rows. Each row has a tweet_text and its corresponding cyberbullying_type.
-
-b.	Labels: The six target classes are: age, ethnicity, gender, religion, other_cyberbullying, and not_cyberbullying. These are encoded into numerical labels (0-5) for the model.
-
-c.	Model: The Bert-base-uncased model was chosen as the base. This is a 12-layer Transformer model with 110 million parameters.
-
-d.	Data Splitting: The data was split into a training set (7,996 samples, 80%) and a validation set (2,000 samples, 20%) to test the model's performance on unseen data.
-
-e.	Preprocessing: Tokenization: The Bert Tokenizer converts raw text into a format BERT understands. This includes splitting words into sub-words (e.g., "bullying" -> "bulli" + "##ng"), adding special tokens like [CLS] (start) and [SEP] (end), and converting tokens to numerical IDs.
+   The methodology follows a standard supervised machine learning pipeline.
+   a.	Dataset: I have downloaded the data set from kaggel cyberbullying_tweets.csv dataset, which contains 9,996 rows. Each row has a tweet_text and its corresponding cyberbullying_type.
+   b.	Labels: The six target classes are: age, ethnicity, gender, religion, other_cyberbullying, and not_cyberbullying. These are encoded into numerical labels (0-5) for the model.
+   c.	Model: The Bert-base-uncased model was chosen as the base. This is a 12-layer Transformer model with 110 million parameters.
+   d.	Data Splitting: The data was split into a training set (7,996 samples, 80%) and a validation set (2,000 samples, 20%) to test the model's performance on unseen data.
+   e.	Preprocessing: Tokenization: The Bert Tokenizer converts raw text into a format BERT understands. This includes splitting words into sub-words (e.g., "bullying" -> "bulli" + "##ng"), adding special tokens         like [CLS] (start) and [SEP] (end), and converting tokens to numerical IDs.
 
 
 6. Implementation
-The solution was implemented in Python using Google Colab, utilizing its free GPU access.
 
-Core Libraries: Pandas for data handling, Transformers (by Hugging Face) for the BERT model and tokenizer, PyTorch as the deep learning framework, and Scikit-learn for label encoding and evaluation metrics.
+   The solution was implemented in Python using Google Colab, utilizing its free GPU access.
 
-Data Pipeline: A custom CyberBullyingDataset class was created in PyTorch. This class handles the tokenization of one tweet at a time. This is fed into DataLoader, which batches the data (BATCH_SIZE = 16) and shuffles it for effective training.
+   Core Libraries: Pandas for data handling, Transformers (by Hugging Face) for the BERT model and tokenizer, PyTorch as the deep learning framework, and Scikit-learn for label encoding and evaluation metrics.
+   Data Pipeline: A custom CyberBullyingDataset class was created in PyTorch. This class handles the tokenization of one tweet at a time. This is fed into DataLoader, which batches the data (BATCH_SIZE = 16) and     shuffles it for effective training.
 
-  6.1 Training Process:
-    
-a.	Model: Bert for Sequence Classification was loaded, pre-trained, and configured for 6 output labels.
-
-b.	Optimizer: AdamW was used, which is the standard optimizer for BERT.
-
-c.	Learning Rate (LR): A small LR of 2e-5 was chosen, as recommended for fine-tuning.
-
-d.	Scheduler: A get_linear_schedule_with_warmup was used to adjust the LR during training, which helps model stability.
-
-e.	Epochs: The model was trained for 3 full epochs. After epochs is done the model is saved in the path '/content/bert_cyberbullying_model'
+  6.1 Training Process: 
+  
+  a.	Model: Bert for Sequence Classification was loaded, pre-trained, and configured for 6 output labels.
+  b.	Optimizer: AdamW was used, which is the standard optimizer for BERT.
+  c.	Learning Rate (LR): A small LR of 2e-5 was chosen, as recommended for fine-tuning.
+  d.	Scheduler: A get_linear_schedule_with_warmup was used to adjust the LR during training, which helps model stability.
+  e.	Epochs: The model was trained for 3 full epochs. After epochs is done the model is saved in the path '/content/bert_cyberbullying_model'
    
-   e. Epochs: The model was trained for 3 full epochs. After epochs is done the model is saved in the path '/content/bert_cyberbullying_model'
