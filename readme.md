@@ -57,6 +57,7 @@ Limitation of this method: Their understanding of context is still shallow (ofte
    The solution was implemented in Python using Google Colab, utilizing its free GPU access.
 
    Core Libraries: Pandas for data handling, Transformers (by Hugging Face) for the BERT model and tokenizer, PyTorch as the deep learning framework, and Scikit-learn for label encoding and evaluation metrics.
+
    Data Pipeline: A custom CyberBullyingDataset class was created in PyTorch. This class handles the tokenization of one tweet at a time. This is fed into DataLoader, which batches the data (BATCH_SIZE = 16) and     shuffles it for effective training.
 
   6.1 Training Process: 
