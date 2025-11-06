@@ -81,7 +81,7 @@ Ex.  The model is static. It was trained on a single CSV file and saved. It has 
 
 b.	Project-related risks / Dataset Bias: The cyberbullying_tweets.csv dataset is not representative of all bullying or all forms of English.
 
-Ex. The model is trained only on the data loaded from cyberbullying_tweets.csv. The labels are limited to the 6 classes encoded in cell 18. So if we give other data or different statement the model won’t identify so this is the maid draw abck
+Ex. The model is trained only on the data loaded from cyberbullying_tweets.csv. The labels are limited to the 6 classes encoded in cell 18. So if we give other data or different statement the model won’t identify so this is the main drawback
 
 
 
