@@ -71,4 +71,19 @@ Limitation of this method: Their understanding of context is still shallow (ofte
   d.	Scheduler: A get_linear_schedule_with_warmup was used to adjust the LR during training, which helps model stability.
   
   e.	Epochs: The model was trained for 3 full epochs. After epochs is done the model is saved in the path '/content/bert_cyberbullying_model'
-   
+
+7. Risk Analysis
+
+The risk analysis evaluated in this project by using model's implementation as evidence which are technical, and project-related risks, using the direct results from the project
+
+
+a.	TechnicalModel Overfitting: The model learns the training data well and doesn't generalize to new, unseen tweets.
+
+Ex.  The model is static. It was trained on a single CSV file and saved. It has no connection to live data. 
+
+b.	Project-related risks / Dataset Bias: The cyberbullying_tweets.csv dataset is not representative of all bullying or all forms of English.
+
+Ex. The model is trained only on the data loaded from cyberbullying_tweets.csv. The labels are limited to the 6 classes encoded in cell 18. So if we give other data or different statement the model won’t identify so this is the maid draw abck
+
+
+
