@@ -15,11 +15,11 @@ My idea is to create a smarter machine learning model that can sense the tone, m
 
 Expected Outcome
 
-At the end, I’ll prepare a full research report that explains the development process, how the model works, its performance. My hope is that this project can contribute to building safer online spaces, where technology can actually recognize and stop harmful conversations before they cause more emotional and personal damage.
+At the end, I will prepare a full research report that explains the development process, how the model works, its performance. My hope is that this project can contribute to building safer online spaces, where technology can actually recognize and stop harmful conversations before they cause more emotional and personal damage.
 
 2. Introduction
 
-Online social media platforms have become central to communication, but they have also enabled new avenues for harassment, known as cyberbullying. This behavior can have severe and lasting psychological impacts on victims. The technical challenge lies in language itself. The line between harmless "in-group" joking, sarcasm, and genuine malicious intent is often blurry. A statement like "You're a terrible person" could be a joke between friends or a targeted attack for some people with lots of sentiment and emotions. so from this project investigates the use of a state-of-the-art natural language processing (NLP) model, BERT, to tackle this problem. The goal of this project is to build and evaluate a multi-class classifier that can not only identify cyberbullying but also distinguish between different types, providing a more granular analysis.
+Online social media platforms have become central to communication, but they have also enabled new platform for harassment, known as cyberbullying. This behavior can have severe and lasting psychological impacts on victims. The technical challenge lies in language itself. The line between harmless in-group joking, sarcasm, and genuine malicious intent is often blurry. A statement like You're a terrible person could be a joke between friends but it will be a targeted attack for some people with lots of sentiment and emotions. so from this project investigates the use of a state-of-the-art natural language processing NLP model, BERT, to tackle this problem. The goal of this project is to build and evaluate a multi-class classifier that can not only identify cyberbullying but also distinguish between different types, providing a more granular analysis.
 
 3. Related Work
 
@@ -38,17 +38,17 @@ Limitation of this method: Their understanding of context is still shallow (ofte
 4. Technical Background
 
    The tool used in this project is transfer learning via the BERT model.
-    •	BERT (Bidirectional Encoder Representations from Transformers): BERT is a deep learning   model developed by Google. Unlike older models that read text left-to-right (like an LSTM), BERT reads the entire          sequence of words at once. This "bidirectional" nature allows it to learn deep contextual relationships. 
-        For example, it can understand that the word bank means something different in "river bank" vs. "money bank" based on the words around it.
+    •	BERT (Bidirectional Encoder Representations from Transformers): BERT is a deep learning   model developed by Google. Unlike older models that read text left-to-right (like an LSTM), BERT reads the entire          sequence of words at once. This bidirectional nature allows it to learn deep contextual relationships. 
+        For example, it can understand that the word bank means something different in river bank vs. money bank based on the words around it.
 
 
 5. Method
 
    The methodology follows a standard supervised machine learning pipeline.
-   a.	Dataset: I have downloaded the data set from kaggel cyberbullying_tweets.csv dataset, which contains 9,996 rows. Each row has a tweet_text and its corresponding cyberbullying_type.
-   b.	Labels: The six target classes are: age, ethnicity, gender, religion, other_cyberbullying, and not_cyberbullying. These are encoded into numerical labels (0-5) for the model.
+   a.	Dataset: I have downloaded the data set from kaggel cyberbullying_tweets.csv dataset, which contains 9,996 rows. Each row has a tweet text and its corresponding cyberbullying type.
+   b.	Labels: The six target classes are: age, ethnicity, gender, religion, other_cyberbullying, and not_cyberbullying. These are encoded into numerical labels 0 to 5 for the model.
    c.	Model: The Bert-base-uncased model was chosen as the base. This is a 12-layer Transformer model with 110 million parameters.
-   d.	Data Splitting: The data was split into a training set (7,996 samples, 80%) and a validation set (2,000 samples, 20%) to test the model's performance on unseen data.
+   d.	Data Splitting: The data was split into a training set 7,996 samples, 80% and a validation set (2,000 samples, 20%) to test the model's performance on unseen data.
    e.	Preprocessing: Tokenization: The Bert Tokenizer converts raw text into a format BERT understands. This includes splitting words into sub-words (e.g., "bullying" -> "bulli" + "##ng"), adding special tokens         like [CLS] (start) and [SEP] (end), and converting tokens to numerical IDs.
 
 
@@ -65,12 +65,10 @@ Limitation of this method: Their understanding of context is still shallow (ofte
   a.	Model: Bert for Sequence Classification was loaded, pre-trained, and configured for 6 output labels.
   
   b.	Optimizer: AdamW was used, which is the standard optimizer for BERT.
+    
+  c.	Scheduler: A get_linear_schedule_with_warmup was used to adjust the LR during training, which helps model stability.
   
-  c.	Learning Rate (LR): A small LR of 2e-5 was chosen, as recommended for fine-tuning.
-  
-  d.	Scheduler: A get_linear_schedule_with_warmup was used to adjust the LR during training, which helps model stability.
-  
-  e.	Epochs: The model was trained for 3 full epochs. After epochs is done the model is saved in the path '/content/bert_cyberbullying_model'
+  d.	Epochs: The model was trained for 3 full epochs. After epochs is done the model is saved in the path '/content/bert_cyberbullying_model'
 
 7. Risk Analysis
 
