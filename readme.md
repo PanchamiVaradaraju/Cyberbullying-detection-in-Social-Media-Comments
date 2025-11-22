@@ -40,9 +40,12 @@ Limitation of this method: Their understanding of context is still shallow (ofte
    The tool used in this project is transfer learning via the BERT model.
     •	BERT (Bidirectional Encoder Representations from Transformers): BERT is a deep learning   model developed by Google. Unlike older models that read text left-to-right (like an LSTM), BERT reads the entire          sequence of words at once. This bidirectional nature allows it to learn deep contextual relationships. 
         For example, it can understand that the word bank means something different in river bank vs. money bank based on the words around it.
+   
+
+In this project, the 'bert-base-uncased' model was selected due to its balance of computational efficiency and performance. The dataset, obtained from Kaggle, contains 9,996 labeled tweets categorized into six classes. Data preprocessing, tokenization, and fine-tuning were executed using the Hugging Face Transformers library and PyTorch framework.
 
 
-5. Method
+6. Method
 
    The methodology follows a standard supervised machine learning pipeline.
    a.	Dataset: I have downloaded the data set from kaggel cyberbullying_tweets.csv dataset, which contains 9,996 rows. Each row has a tweet text and its corresponding cyberbullying type.
@@ -52,7 +55,7 @@ Limitation of this method: Their understanding of context is still shallow (ofte
    e.	Preprocessing: Tokenization: The Bert Tokenizer converts raw text into a format BERT understands. This includes splitting words into sub-words (e.g., "bullying" -> "bulli" + "##ng"), adding special tokens         like [CLS] (start) and [SEP] (end), and converting tokens to numerical IDs.
 
 
-6. Implementation
+7. Implementation
 
    The solution was implemented in Python using Google Colab, utilizing its free GPU access.
 
@@ -82,6 +85,14 @@ Ex.  The model is static. It was trained on a single CSV file and saved. It has 
 b.	Project-related risks / Dataset Bias: The cyberbullying_tweets.csv dataset is not representative of all bullying or all forms of English.
 
 Ex. The model is trained only on the data loaded from cyberbullying_tweets.csv. The labels are limited to the 6 classes encoded in cell 18. So if we give other data or different statement the model won’t identify so this is the main drawback
+
+Conclusion 
+This project enhanced my understanding of advanced NLP concepts, particularly transformer models. Through experimentation with BERT, I gained hands-on experience in fine-tuning, optimization, and ethical evaluation of AI systems.
+
+The iterative nature of model improvement also reinforced project management and debugging skills. Future improvements would include expanding dataset diversity and deploying the model as a real-time web service.
+
+In conclusion, this project demonstrates the feasibility of using BERT for cyberbullying detection. While challenges remain, particularly in contextual understanding and ethical deployment, the foundation established here can inform more robust and fair NLP-based moderation tools. Future work may involve integrating visual cues (images, emojis) and cross-lingual models to enhance detection accuracy.
+
 
 
 
