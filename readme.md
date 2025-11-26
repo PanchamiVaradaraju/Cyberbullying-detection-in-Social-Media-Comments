@@ -73,6 +73,37 @@ In this project, the 'bert-base-uncased' model was selected due to its balance o
   
   d.	Epochs: The model was trained for 3 full epochs. After epochs is done the model is saved in the path '/content/bert_cyberbullying_model'
 
+  Model Saving and Reuse
+
+After training is complete, the model and tokenizer are saved as reusable artifacts. This enables the trained model to be loaded in later sessions without retraining. The saved model folder contains the configuration, vocabulary, and weight files required for inference. The saved model can be used to generate predictions or integrated into a web interface.
+
+Saving the Model
+
+After training, the model and tokenizer are saved using the Hugging Face save_pretrained API:
+
+OUTPUT_DIR = "/content/bert_cyberbullying_model"
+
+model.save_pretrained(OUTPUT_DIR)
+tokenizer.save_pretrained(OUTPUT_DIR)
+
+print("Model and tokenizer saved to:", OUTPUT_DIR)
+
+
+This directory will contain files such as:
+
+pytorch_model.bin – model weights
+
+config.json – model configuration
+
+tokenizer.json, vocab.txt, etc. – tokenizer files
+
+next
+Zip this folder,
+
+Download it from Colab, or
+
+Move it to Google Drive or to your local machine .
+
 7. Risk Analysis
 
 The risk analysis evaluated in this project by using model's implementation as evidence which are technical, and project-related risks, using the direct results from the project
