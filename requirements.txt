@@ -6,3 +6,16 @@ nltk
 tqdm
 pandas
 matplotlib-venn
+
+
+2. Project Structure (suggested)
+
+.
+├── data/
+│   └── cyberbullying_data.csv         # Original / cleaned dataset
+├── notebooks/
+│   └── Project_File_CSEMCSPCSP01.ipynb  # Main Colab notebook
+├── models/
+│   └── bert_cyberbullying_model/      # Saved model + tokenizer (after training)
+├── app/
+│   └── gradio_app.py                  # Optional: standalone Gradio interface script
